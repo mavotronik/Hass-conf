@@ -1,0 +1,68 @@
+установка НА supervised в докер на x86-64 на ОС debian 10
+
+1. Обновление списка пакетов и самих пакетов
+sudo apt update
+sudo apt upgrade -y
+
+2. Настраиваем сеть
+sudo apt-get install -y network-manager
+
+Отключаем dhcpcd
+sudo nano /etc/dhcpcd.conf
+denyinterfaces wlan0
+denyinterfaces eth0
+
+Выход - Ctrl-X 
+Сохранить изменения - Y
+
+
+sudo nano /etc/NetworkManager/NetworkManager.conf
+[main]
+plugins=ifupdown,keyfile
+dhcp=internal
+
+[ifupdown]
+managed=true
+
+Выход - Ctrl-X 
+Сохранить изменения - Y
+
+sudo reboot
+
+sudo systemctl stop dhcpcd
+sudo systemctl disable dhcpcd
+
+3. Установка пакетов нужных для работы и установки Hass.io
+
+sudo apt-get install -y bash curl git jq avahi-daemon dbus apparmor-utils libavahi-compat-libdnssd-dev libatlas3-base apt-transport-https ca-certificates socat software-properties-common ftpd mc 
+
+Перезагрузка - 
+sudo reboot
+
+4. Установка docker - 
+sudo curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
+
+Добавляем группу docker и добавляем в нее пользователя
+sudo groupadd docker
+sudo gpasswd -a $USER docker
+newgrp docker
+
+5. ставим Portainer - 
+docker pull portainer/portainer-ce
+docker volume create portainer_data
+docker run -d -p 9000:9000 --name portainer --restart always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
+
+Веб интерфейс Portainer - IP adress:9000
+
+6. Переходим в режим root - sudo su
+
+7. Установка hass.io (список ключей тут - https://github.com/home-assistant/supervised-installer)
+
+Скрипт
+curl -Lo installer.sh https://raw.githubusercontent.com/home-assistant/supervised-installer/master/installer.sh
+
+8. Запуск
+bash installer.sh --machine intel-nuc
+
+Если появляется ошибка: [error] missing: apparmor
+то надо выполнить эту команду:   export PATH=$PATH:/usr/sbin  и повторить п.8 еще раз.
