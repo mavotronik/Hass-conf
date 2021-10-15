@@ -1,0 +1,555 @@
+- id: '1631740739506'
+  name: Светодиодная лента режим Scan
+  entities:
+    light.wled:
+      effect_list:
+      - Android
+      - Aurora
+      - Blends
+      - Blink
+      - Blink Rainbow
+      - Bouncing Balls
+      - Bpm
+      - Breathe
+      - Candle
+      - Candle Multi
+      - Candy Cane
+      - Chase
+      - Chase Flash
+      - Chase Flash Rnd
+      - Chase Rainbow
+      - Chase Random
+      - Chunchun
+      - Circus
+      - Colorful
+      - Colorloop
+      - Colortwinkles
+      - Colorwaves
+      - Dancing Shadows
+      - Dissolve
+      - Dissolve Rnd
+      - Drip
+      - Dynamic
+      - Dynamic Smooth
+      - Fade
+      - Fill Noise
+      - Fire 2012
+      - Fire Flicker
+      - Fireworks
+      - Fireworks 1D
+      - Fireworks Starburst
+      - Flow
+      - Glitter
+      - Gradient
+      - Halloween
+      - Halloween Eyes
+      - Heartbeat
+      - ICU
+      - Juggle
+      - Lake
+      - Lighthouse
+      - Lightning
+      - Loading
+      - Meteor
+      - Meteor Smooth
+      - Multi Comet
+      - Noise 1
+      - Noise 2
+      - Noise 3
+      - Noise 4
+      - Noise Pal
+      - Oscillate
+      - Pacifica
+      - Palette
+      - Percent
+      - Phased
+      - Phased Noise
+      - Plasma
+      - Police
+      - Police All
+      - Popcorn
+      - Pride 2015
+      - Railway
+      - Rain
+      - Rainbow
+      - Rainbow Runner
+      - Random Colors
+      - Ripple
+      - Ripple Rainbow
+      - Running
+      - Running 2
+      - Saw
+      - Scan
+      - Scan Dual
+      - Scanner
+      - Scanner Dual
+      - Sine
+      - Sinelon
+      - Sinelon Dual
+      - Sinelon Rainbow
+      - Solid
+      - Solid Glitter
+      - Solid Pattern
+      - Solid Pattern Tri
+      - Sparkle
+      - Sparkle Dark
+      - Sparkle+
+      - Spots
+      - Spots Fade
+      - Stream
+      - Stream 2
+      - Strobe
+      - Strobe Mega
+      - Strobe Rainbow
+      - Sunrise
+      - Sweep
+      - Sweep Random
+      - TV Simulator
+      - Tetrix
+      - Theater
+      - Theater Rainbow
+      - Traffic Light
+      - Tri Chase
+      - Tri Fade
+      - Tri Wipe
+      - Twinkle
+      - Twinklecat
+      - Twinklefox
+      - Twinkleup
+      - Two Areas
+      - Two Dots
+      - Washing Machine
+      - Wipe
+      - Wipe Random
+      supported_color_modes:
+      - rgb
+      color_mode: rgb
+      brightness: 230
+      hs_color:
+      - 47.059
+      - 100
+      rgb_color:
+      - 255
+      - 200
+      - 0
+      xy_color:
+      - 0.514
+      - 0.457
+      effect: Scan
+      intensity: 128
+      palette: Default
+      reverse: false
+      speed: 128
+      friendly_name: WLED
+      icon: mdi:led-strip-variant
+      supported_features: 36
+      state: 'on'
+    select.wled_playlist:
+      options: []
+      friendly_name: WLED Playlist
+      icon: mdi:play-speed
+      state: unavailable
+    select.wled_preset:
+      options:
+      - Rainbow
+      - Scan 1
+      - 'Washing Machine 1 '
+      - Washing Maschine 2
+      friendly_name: WLED Preset
+      icon: mdi:playlist-play
+      state: Scan 1
+    switch.wled_nightlight:
+      duration: 60
+      fade: true
+      target_brightness: 0
+      friendly_name: WLED Nightlight
+      icon: mdi:weather-night
+      state: 'off'
+    switch.wled_sync_send:
+      udp_port: 21324
+      friendly_name: WLED Sync Send
+      icon: mdi:upload-network-outline
+      state: 'off'
+    switch.wled_sync_receive:
+      udp_port: 21324
+      friendly_name: WLED Sync Receive
+      icon: mdi:download-network-outline
+      state: 'on'
+    light.wled_master:
+      restored: true
+      supported_color_modes:
+      - brightness
+      supported_features: 32
+      friendly_name: WLED Master
+      icon: mdi:led-strip-variant
+      state: unavailable
+- id: '1631740963533'
+  name: Светодиодная лента режим Washing Machine
+  entities:
+    light.wled:
+      effect_list:
+      - Android
+      - Aurora
+      - Blends
+      - Blink
+      - Blink Rainbow
+      - Bouncing Balls
+      - Bpm
+      - Breathe
+      - Candle
+      - Candle Multi
+      - Candy Cane
+      - Chase
+      - Chase Flash
+      - Chase Flash Rnd
+      - Chase Rainbow
+      - Chase Random
+      - Chunchun
+      - Circus
+      - Colorful
+      - Colorloop
+      - Colortwinkles
+      - Colorwaves
+      - Dancing Shadows
+      - Dissolve
+      - Dissolve Rnd
+      - Drip
+      - Dynamic
+      - Dynamic Smooth
+      - Fade
+      - Fill Noise
+      - Fire 2012
+      - Fire Flicker
+      - Fireworks
+      - Fireworks 1D
+      - Fireworks Starburst
+      - Flow
+      - Glitter
+      - Gradient
+      - Halloween
+      - Halloween Eyes
+      - Heartbeat
+      - ICU
+      - Juggle
+      - Lake
+      - Lighthouse
+      - Lightning
+      - Loading
+      - Meteor
+      - Meteor Smooth
+      - Multi Comet
+      - Noise 1
+      - Noise 2
+      - Noise 3
+      - Noise 4
+      - Noise Pal
+      - Oscillate
+      - Pacifica
+      - Palette
+      - Percent
+      - Phased
+      - Phased Noise
+      - Plasma
+      - Police
+      - Police All
+      - Popcorn
+      - Pride 2015
+      - Railway
+      - Rain
+      - Rainbow
+      - Rainbow Runner
+      - Random Colors
+      - Ripple
+      - Ripple Rainbow
+      - Running
+      - Running 2
+      - Saw
+      - Scan
+      - Scan Dual
+      - Scanner
+      - Scanner Dual
+      - Sine
+      - Sinelon
+      - Sinelon Dual
+      - Sinelon Rainbow
+      - Solid
+      - Solid Glitter
+      - Solid Pattern
+      - Solid Pattern Tri
+      - Sparkle
+      - Sparkle Dark
+      - Sparkle+
+      - Spots
+      - Spots Fade
+      - Stream
+      - Stream 2
+      - Strobe
+      - Strobe Mega
+      - Strobe Rainbow
+      - Sunrise
+      - Sweep
+      - Sweep Random
+      - TV Simulator
+      - Tetrix
+      - Theater
+      - Theater Rainbow
+      - Traffic Light
+      - Tri Chase
+      - Tri Fade
+      - Tri Wipe
+      - Twinkle
+      - Twinklecat
+      - Twinklefox
+      - Twinkleup
+      - Two Areas
+      - Two Dots
+      - Washing Machine
+      - Wipe
+      - Wipe Random
+      supported_color_modes:
+      - rgb
+      color_mode: rgb
+      brightness: 230
+      hs_color:
+      - 37.647
+      - 100
+      rgb_color:
+      - 255
+      - 160
+      - 0
+      xy_color:
+      - 0.569
+      - 0.411
+      effect: Washing Machine
+      intensity: 128
+      palette: Default
+      reverse: false
+      speed: 128
+      friendly_name: WLED
+      icon: mdi:led-strip-variant
+      supported_features: 36
+      state: 'on'
+    select.wled_playlist:
+      options: []
+      friendly_name: WLED Playlist
+      icon: mdi:play-speed
+      state: unavailable
+    select.wled_preset:
+      options:
+      - Rainbow
+      - Scan 1
+      - 'Washing Machine 1 '
+      - Washing Maschine 2
+      friendly_name: WLED Preset
+      icon: mdi:playlist-play
+      state: unknown
+    switch.wled_nightlight:
+      duration: 60
+      fade: true
+      target_brightness: 0
+      friendly_name: WLED Nightlight
+      icon: mdi:weather-night
+      state: 'off'
+    switch.wled_sync_send:
+      udp_port: 21324
+      friendly_name: WLED Sync Send
+      icon: mdi:upload-network-outline
+      state: 'off'
+    switch.wled_sync_receive:
+      udp_port: 21324
+      friendly_name: WLED Sync Receive
+      icon: mdi:download-network-outline
+      state: 'on'
+    light.wled_master:
+      restored: true
+      supported_color_modes:
+      - brightness
+      supported_features: 32
+      friendly_name: WLED Master
+      icon: mdi:led-strip-variant
+      state: unavailable
+- id: '1633733218771'
+  name: Светодиодная лента ночной свет
+  entities:
+    light.wled:
+      effect_list:
+      - Android
+      - Aurora
+      - Blends
+      - Blink
+      - Blink Rainbow
+      - Bouncing Balls
+      - Bpm
+      - Breathe
+      - Candle
+      - Candle Multi
+      - Candy Cane
+      - Chase
+      - Chase Flash
+      - Chase Flash Rnd
+      - Chase Rainbow
+      - Chase Random
+      - Chunchun
+      - Circus
+      - Colorful
+      - Colorloop
+      - Colortwinkles
+      - Colorwaves
+      - Dancing Shadows
+      - Dissolve
+      - Dissolve Rnd
+      - Drip
+      - Dynamic
+      - Dynamic Smooth
+      - Fade
+      - Fill Noise
+      - Fire 2012
+      - Fire Flicker
+      - Fireworks
+      - Fireworks 1D
+      - Fireworks Starburst
+      - Flow
+      - Glitter
+      - Gradient
+      - Halloween
+      - Halloween Eyes
+      - Heartbeat
+      - ICU
+      - Juggle
+      - Lake
+      - Lighthouse
+      - Lightning
+      - Loading
+      - Meteor
+      - Meteor Smooth
+      - Multi Comet
+      - Noise 1
+      - Noise 2
+      - Noise 3
+      - Noise 4
+      - Noise Pal
+      - Oscillate
+      - Pacifica
+      - Palette
+      - Percent
+      - Phased
+      - Phased Noise
+      - Plasma
+      - Police
+      - Police All
+      - Popcorn
+      - Pride 2015
+      - Railway
+      - Rain
+      - Rainbow
+      - Rainbow Runner
+      - Random Colors
+      - Ripple
+      - Ripple Rainbow
+      - Running
+      - Running 2
+      - Saw
+      - Scan
+      - Scan Dual
+      - Scanner
+      - Scanner Dual
+      - Sine
+      - Sinelon
+      - Sinelon Dual
+      - Sinelon Rainbow
+      - Solid
+      - Solid Glitter
+      - Solid Pattern
+      - Solid Pattern Tri
+      - Sparkle
+      - Sparkle Dark
+      - Sparkle+
+      - Spots
+      - Spots Fade
+      - Stream
+      - Stream 2
+      - Strobe
+      - Strobe Mega
+      - Strobe Rainbow
+      - Sunrise
+      - Sweep
+      - Sweep Random
+      - TV Simulator
+      - Tetrix
+      - Theater
+      - Theater Rainbow
+      - Traffic Light
+      - Tri Chase
+      - Tri Fade
+      - Tri Wipe
+      - Twinkle
+      - Twinklecat
+      - Twinklefox
+      - Twinkleup
+      - Two Areas
+      - Two Dots
+      - Washing Machine
+      - Wipe
+      - Wipe Random
+      supported_color_modes:
+      - rgb
+      color_mode: rgb
+      brightness: 28
+      hs_color:
+      - 40.421
+      - 37.255
+      rgb_color:
+      - 255
+      - 224
+      - 160
+      xy_color:
+      - 0.411
+      - 0.392
+      effect: Solid
+      intensity: 128
+      palette: Default
+      reverse: false
+      speed: 128
+      friendly_name: WLED
+      icon: mdi:led-strip-variant
+      supported_features: 36
+      state: 'on'
+    select.wled_playlist:
+      options: []
+      friendly_name: WLED Playlist
+      icon: mdi:play-speed
+      state: unavailable
+    select.wled_preset:
+      options:
+      - Rainbow
+      - Scan 1
+      - 'Washing Machine 1 '
+      - Washing Maschine 2
+      friendly_name: WLED Preset
+      icon: mdi:playlist-play
+      state: unknown
+    switch.wled_nightlight:
+      duration: 60
+      fade: true
+      target_brightness: 0
+      friendly_name: WLED Nightlight
+      icon: mdi:weather-night
+      state: 'off'
+    switch.wled_sync_send:
+      udp_port: 21324
+      friendly_name: WLED Sync Send
+      icon: mdi:upload-network-outline
+      state: 'off'
+    switch.wled_sync_receive:
+      udp_port: 21324
+      friendly_name: WLED Sync Receive
+      icon: mdi:download-network-outline
+      state: 'on'
+    light.wled_master:
+      restored: true
+      supported_color_modes:
+      - brightness
+      supported_features: 32
+      friendly_name: WLED Master
+      icon: mdi:led-strip-variant
+      state: unavailable
