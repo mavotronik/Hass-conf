@@ -1,0 +1,29 @@
+template:
+  - sensor: 
+      - name: "Влажность почвы в банке"
+        unit_of_measurement: "%"
+        state_class: "measurement"
+        icon: mdi:water-sync
+        state: >
+          {% set f_moisture = states('sensor.vlazhnost_pochvy_v_banke_mqtt') | float %}
+          {{ ((f_moisture)) * 100 | round (0) }}
+          
+  - sensor: 
+      - name: "Влажность воздуха в банке"
+        unit_of_measurement: "%"
+        state_class: "measurement"
+        icon: mdi:water-percent
+        state: >
+          {% set f_hum = states('sensor.vlazhnost_vozdukha_v_banke_mqtt') | int %}
+          {{ ((f_hum)) * 1 | round (1) }}
+        
+  - sensor: 
+      - name: "Температура воздуха в банке"
+        unit_of_measurement: "°C"
+        state_class: "measurement"
+        icon: mdi:thermometer
+        state: >
+          {% set f_temp = states('sensor.temperatura_vozdukha_v_banke_mqtt') | int %}
+          {{ ((f_temp)) * 1 | round (1) }}
+          
+          

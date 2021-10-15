@@ -1,0 +1,14 @@
+# Отправка смс с помощью шилда от Амперки, подключенного через USBttl
+# Сенсор для отслеживания данных приходящих с модуля
+# sensor:
+  # - platform: serial
+    # serial_port: /dev/ttyUSB0
+    # baudrate: 9600
+# # По другому сделать не получилось
+# switch:
+  # - platform: command_line
+    # switches: 
+      # sms_at:
+        # command_on: 'echo -e -n "AT" > /dev/ttyUSB0'
+      # sms_test:
+        # command_on: 'echo -e -n "AT+CMGS=«+79062585121»>Test" > /dev/ttyUSB0'

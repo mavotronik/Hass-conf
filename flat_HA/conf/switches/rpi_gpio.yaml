@@ -1,0 +1,8 @@
+switch:
+  - platform: rpi_gpio
+    ports:
+      2: Proc_fan 
+      10: Pin_10
+      12: Pin_12
+      13: Pin_13
+      14: Pin_14

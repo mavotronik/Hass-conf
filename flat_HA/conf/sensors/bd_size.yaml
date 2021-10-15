@@ -1,0 +1,16 @@
+sensor: 
+  - platform: sql
+    scan_interval: 120
+    queries: 
+      - name: Hassio DB Size 
+        query: 'SELECT ROUND(page_count * page_size / 1024 / 1024, 1) as size FROM pragma_page_count(), pragma_page_size();' 
+        column: 'size' 
+        unit_of_measurement: MB
+        
+  - platform: sql
+    db_url: mysql://homeassistant:homeassistant@core-mariadb/homeassistant?charset=utf8
+    queries:
+      - name: Maria DB size
+        query: 'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1048576, 2) "value" FROM information_schema.tables WHERE table_schema="homeassistant" GROUP BY table_schema;'
+        column: 'value'
+        unit_of_measurement: MB 

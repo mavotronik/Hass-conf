@@ -1,0 +1,15 @@
+# Example configuration.yaml entry
+android_ip_webcam:
+  - host: 192.168.2.9
+    port: 8080
+    sensors:
+      - battery_level
+      - battery_temp
+    switches:
+      - exposure_lock
+      - ffc
+      - focus
+      - night_vision
+      - overlay
+      - whitebalance_lock
+      - video_recording

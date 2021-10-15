@@ -1,0 +1,7 @@
+sensor:
+binary_sensor:
+  - platform: ping
+    host: 192.168.2.13
+    name: "Шлюз"
+    count: 5
+    scan_interval: 60

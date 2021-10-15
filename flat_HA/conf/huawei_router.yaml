@@ -1,0 +1,5 @@
+device_tracker:
+  - platform: huawei_router
+    host: 192.168.0.1
+    username: !secret huawei_user
+    password: !secret huawei_password

@@ -1,0 +1,9 @@
+binary_sensor:
+  - platform: template
+    sensors:
+      humr_status:
+        friendly_name: "Увлажнитель"
+        delay_off:
+          minutes: 0.5
+        value_template: >-
+          {{ states('sensor.212a01_5448e67c5d70_power')|float > (21) }}

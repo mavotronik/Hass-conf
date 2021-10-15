@@ -1,0 +1,7 @@
+sensor:
+binary_sensor:
+  - platform: ping
+    host: 192.168.2.5
+    name: "Ноутбук"
+    count: 10
+    scan_interval: 30
