@@ -1,7 +1,0 @@
-sensor:
-binary_sensor:
-  - platform: ping
-    host: 192.168.2.8
-    name: "Телефон 3"
-    count: 5
-    scan_interval: 60

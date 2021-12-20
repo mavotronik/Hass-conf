@@ -1,7 +1,0 @@
-sensor:
-  # Minimal configuration of the standard time and date sensor
-  - platform: time_date
-    display_options:
-      - 'date_time'
-      - 'date'
-      - 'time'

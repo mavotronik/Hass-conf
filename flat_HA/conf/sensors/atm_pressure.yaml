@@ -1,8 +1,0 @@
-sensor:
-  - platform: template
-    sensors:
-      pressure:
-        friendly_name: 'Атмосферное давление'
-        value_template: "{{ (states('sensor.indoor_sensor_pressure')|float / 1.334)|round(1) }}"
-        unit_of_measurement: 'мм рт. ст.'
-        icon_template: mdi:gauge

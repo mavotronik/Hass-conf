@@ -1,9 +1,0 @@
-sensor.snapshot_backup:
-  icon: mdi:radiobox-marked
-sensor.db_size:
-  icon: mdi:table
-  friendly_name: Размер БД
-sensor.time_online:
-  friendly_name: Последняя перезагрузка HA
-sensor.hum_energy_day_um:
-  device_class: energy

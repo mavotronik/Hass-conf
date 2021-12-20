@@ -1,7 +1,0 @@
-plant:
-  florarum:
-    sensors:
-      moisture: sensor.vlazhnost_pochvy_v_banke
-      temperature: sensor.temperatura_vozdukha_v_banke
-    min_moisture: 30
-#    max_moisture: 70

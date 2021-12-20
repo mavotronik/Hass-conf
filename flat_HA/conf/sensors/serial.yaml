@@ -1,4 +1,0 @@
-# sensor:
-  # - platform: serial
-    # serial_port: /dev/ttyUSB0
-    # baudrate: 9600
