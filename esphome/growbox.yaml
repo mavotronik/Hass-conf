@@ -1,0 +1,170 @@
+# ---- ВСЕ ПИНЫ ИСПОЛЬЗОВАНЫ!!!!! (почти. остались инпут онли )  ---- #
+
+substitutions:
+  device_name: growbox
+  io_device_name: Growbox
+
+esphome:
+  name: ${device_name}
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: "growbox"
+ota:
+  password: "e36e1c19c453ce35ea0310e51bbaf767"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Growbox Fallback Hotspot"
+    password: "mbgVdGY9QUAM"
+
+captive_portal:
+
+web_server:
+  port: 80
+
+i2c:
+  sda: 25
+  scl: 26
+  scan: true
+  id: i2c_1
+
+sensor:
+  - platform: aht10
+    temperature:
+      name: ${io_device_name} temperature
+    humidity:
+      name: $(io_device_name} humidity
+    update_interval: 60s
+    
+  - platform: adc
+    pin: 34
+    name: ${io_device_name} moisture sensor 1
+    id: 
+    filters:
+      - multiply: 3.3
+      
+  - platform: adc
+    pin: 35
+    name: ${io_device_name} moisture sensor 2
+    id: 
+    filters:
+      - multiply: 3.3
+      
+binary_sensor:
+ - platform: gpio
+   name: ${io_device_name} button 1
+   pin:
+     number: 22
+     inverted: false
+     
+ - platform: gpio
+   name: ${io_device_name} button 2
+   pin:
+     number: 23
+     inverted: false
+     
+ - platform: gpio
+   name: ${io_device_name} water
+   pin:
+     number: 39
+     inverted: false
+     
+
+switch:
+# Реле 1
+  - platform: gpio
+    name: ${io_device_name} vent
+    pin: GPIO12
+    inverted: true
+    icon: mdi:fan
+    id: vent
+
+# Реле 2
+  - platform: gpio
+    name: ${io_device_name} humidifer
+    pin: GPIO13
+    inverted: true
+    icon: mdi:sprinkler
+    id: humidifer
+
+# Реле 3
+  - platform: gpio
+    name: ${io_device_name} pump
+    pin: GPIO14
+    inverted: true
+    icon: mdi:pump
+    id: pump
+    
+# Реле 4
+  - platform: gpio
+    name: ${io_device_name} light
+    pin: GPIO21
+    inverted: true
+    icon: mdi:wall-sconce-round
+    id: light
+  
+# Реле 5
+  - platform: gpio
+    name: ${io_device_name} heater
+    pin: GPIO16
+    inverted: true
+    icon: mdi:radiator
+    id: heater
+    
+# Реле 6
+  - platform: gpio
+    name: ${io_device_name} fan
+    pin: GPIO17
+    inverted: true
+    icon: mdi:fan-auto
+    id: fan
+    
+# Реле 7
+  - platform: gpio
+    name: ${io_device_name} rel
+    pin: GPIO18
+    inverted: true
+    icon: mdi:lightning-bolt
+    id: rel
+    
+# Реле 8
+  - platform: gpio
+    name: ${io_device_name} rel 2
+    pin: GPIO19
+    inverted: true
+    icon: mdi:lightning-bolt
+    id: rel2
+    
+spi:
+  clk_pin: 21
+  mosi_pin: 26
+
+font: 
+  - file: 'fonts/arial.ttf'
+    size: 20
+    id: arial1
+
+display:
+  - platform: ssd1351_spi
+    model: "SSD1351 128x128"
+    reset_pin: 32
+    cs_pin: 33
+    dc_pin: 25
+    update_interval: 1s
+    id: display1
+    lambda: |-
+      it.print(0, 0, id(arial1), "Hello World!");
