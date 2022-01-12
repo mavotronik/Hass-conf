@@ -38,16 +38,21 @@ web_server:
 
 i2c:
   sda: 25
-  scl: 26
+  scl: 27
   scan: true
   id: i2c_1
+
+#dallas:
+#  - pin: 2
 
 sensor:
   - platform: aht10
     temperature:
       name: ${io_device_name} temperature
+      id: temperature
     humidity:
       name: $(io_device_name} humidity
+      id: humidity
     update_interval: 60s
     
   - platform: adc
@@ -64,6 +69,12 @@ sensor:
     filters:
       - multiply: 3.3
       
+#  - platform: dallas
+#    address: посмотреть в консоли
+#    name: " ${io_device_name} temperature #1"
+#     id: ds_1
+      
+      
 binary_sensor:
  - platform: gpio
    name: ${io_device_name} button 1
@@ -74,7 +85,7 @@ binary_sensor:
  - platform: gpio
    name: ${io_device_name} button 2
    pin:
-     number: 23
+     number: 36
      inverted: false
      
  - platform: gpio
@@ -119,35 +130,35 @@ switch:
   
 # Реле 5
   - platform: gpio
-    name: ${io_device_name} heater
+    name: ${io_device_name} heater-1
     pin: GPIO16
     inverted: true
     icon: mdi:radiator
-    id: heater
+    id: heater1
     
 # Реле 6
   - platform: gpio
-    name: ${io_device_name} fan
+    name: ${io_device_name} heater-2
     pin: GPIO17
+    inverted: true
+    icon: mdi:radiator
+    id: heater2
+    
+# Реле 7
+  - platform: gpio
+    name: ${io_device_name} fan
+    pin: GPIO18
     inverted: true
     icon: mdi:fan-auto
     id: fan
     
-# Реле 7
-  - platform: gpio
-    name: ${io_device_name} rel
-    pin: GPIO18
-    inverted: true
-    icon: mdi:lightning-bolt
-    id: rel
-    
 # Реле 8
   - platform: gpio
-    name: ${io_device_name} rel 2
+    name: ${io_device_name} rel
     pin: GPIO19
     inverted: true
     icon: mdi:lightning-bolt
-    id: rel2
+    id: rel
     
 spi:
   clk_pin: 21
@@ -156,15 +167,35 @@ spi:
 font: 
   - file: 'fonts/arial.ttf'
     size: 20
-    id: arial1
+    glyphs: '!"%()+=,-_.:°0123456789АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
+    id: font1
+    
+  - file: 'fonts/arial.ttf'
+    size: 10
+    glyphs: '!"%()+=,-_.:°0123456789АБВГДЕЖЗИКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ абвгдежзиклмнопрстуфхцчшщъыьэюя'
+    id: font2
+    
 
 display:
   - platform: ssd1351_spi
     model: "SSD1351 128x128"
     reset_pin: 32
     cs_pin: 33
-    dc_pin: 25
+    dc_pin: 23
     update_interval: 1s
     id: display1
-    lambda: |-
-      it.print(0, 0, id(arial1), "Hello World!");
+    
+    pages:
+      - id: page1
+        lambda: |-
+          it.print(0, 0, id(font1), "Климатические сенсоры:");
+          it.printf(0, 15 ,id(font2),"Температура: %.1f °С", id(temperature).state);
+          it.printf(0, 27 ,id(font2),"Влажность: %.1f %%", id(humidity).state);
+#          it.printf(0, 40 ,id(font2),"Pres: %.1f V", id(ha_pressure).state);
+      - id: page2
+        lambda: |-
+          it.print(0, 0, id(font1), "Состояния:");
+          it.printf(0, 15 ,id(font2),"Свет: ", id(light).state);
+          it.printf(0, 27 ,id(font2),"Вентиляция: ", id(vent).state);
+          it.printf(0, 40 ,id(font2),"Полив: ", id(pump).state);
+          
