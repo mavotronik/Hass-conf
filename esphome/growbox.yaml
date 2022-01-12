@@ -93,6 +93,11 @@ binary_sensor:
    pin:
      number: 39
      inverted: false
+   filters:
+      - delayed_on_off: 300ms
+   on_release:
+      then:
+        - switch.turn_off: pump
      
 
 switch:
