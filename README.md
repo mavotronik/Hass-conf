@@ -1,1 +1,1 @@
-# Hass-conf
+# Hass configuration
